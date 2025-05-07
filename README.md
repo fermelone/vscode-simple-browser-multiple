@@ -3,7 +3,7 @@
 This is a modified version of VS Code's built-in [Simple Browser extension](https://github.com/microsoft/vscode/tree/main/extensions/simple-browser) that allows opening multiple browser instances simultaneously.
 
 <p align="center">
-  <img width="800" alt="image" src="https://github.com/user-attachments/assets/61f4b22c-9ab0-49a4-8e3d-406bcc9e4925" />
+  <img width="800" alt="image" src="https://github.com/user-attachments/assets/7b86b4ae-9fa5-4090-882d-9bfed0491f7d" />
 </p>
 
 ## Features
