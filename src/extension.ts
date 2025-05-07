@@ -9,6 +9,11 @@ import { SimpleBrowserView } from './simpleBrowserView';
 
 // Use the built-in URL API
 
+// Original Simple Browser commands
+const originalOpenApiCommand = 'simpleBrowser.api.open';
+const originalShowCommand = 'simpleBrowser.show';
+
+// Simple Browser Multi commands
 const openApiCommand = 'simpleBrowserMulti.api.open';
 const showCommand = 'simpleBrowserMulti.show';
 
@@ -46,6 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}));
 
+		// Register Simple Browser Multi commands
 	context.subscriptions.push(vscode.commands.registerCommand(showCommand, async (url?: string) => {
 		if (!url) {
 			url = await vscode.window.showInputBox({
@@ -60,6 +66,27 @@ export function activate(context: vscode.ExtensionContext) {
 	}));
 
 	context.subscriptions.push(vscode.commands.registerCommand(openApiCommand, (url: vscode.Uri, showOptions?: {
+		preserveFocus?: boolean;
+		viewColumn: vscode.ViewColumn;
+	}) => {
+		manager.show(url, showOptions);
+	}));
+
+	// Register original Simple Browser commands to handle them with this extension
+	context.subscriptions.push(vscode.commands.registerCommand(originalShowCommand, async (url?: string) => {
+		if (!url) {
+			url = await vscode.window.showInputBox({
+				placeHolder: vscode.l10n.t("https://example.com"),
+				prompt: vscode.l10n.t("Enter url to visit")
+			});
+		}
+
+		if (url) {
+			manager.show(url);
+		}
+	}));
+
+	context.subscriptions.push(vscode.commands.registerCommand(originalOpenApiCommand, (url: vscode.Uri, showOptions?: {
 		preserveFocus?: boolean;
 		viewColumn: vscode.ViewColumn;
 	}) => {

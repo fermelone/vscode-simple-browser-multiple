@@ -5,7 +5,7 @@
   "enabledApiProposals": [
     "externalUriOpener"
   ],
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "media/icon.png",
   "publisher": "fermelone",
   "license": "MIT",
@@ -24,9 +24,11 @@
   ],
   "activationEvents": [
     "onCommand:simpleBrowserMulti.api.open",
+    "onCommand:simpleBrowser.api.open",
     "onOpenExternalUri:http",
     "onOpenExternalUri:https",
-    "onWebviewPanel:simpleBrowserMulti.view"
+    "onWebviewPanel:simpleBrowserMulti.view",
+    "onWebviewPanel:simpleBrowser.view"
   ],
   "capabilities": {
     "virtualWorkspaces": true,
