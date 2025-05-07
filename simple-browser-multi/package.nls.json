@@ -1,5 +1,0 @@
-{
-	"displayName": "Simple Browser Multi",
-	"description": "A modified version of Simple Browser that allows multiple browser instances",
-	"configuration.focusLockIndicator.enabled.description": "Enable/disable the floating indicator that shows when focused in the simple browser."
-}
