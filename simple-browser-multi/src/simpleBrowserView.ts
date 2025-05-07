@@ -109,7 +109,7 @@ export class SimpleBrowserView extends Disposable {
 		this._webviewPanel.reveal(options?.viewColumn, options?.preserveFocus);
 	}
 
-	private getHtml(url: string) {
+		private getHtml(url: string) {
 		const configuration = vscode.workspace.getConfiguration('simpleBrowser');
 
 		const nonce = getNonce();
@@ -117,6 +117,12 @@ export class SimpleBrowserView extends Disposable {
 		const mainJs = this.extensionResourceUrl('media', 'index.js');
 		const mainCss = this.extensionResourceUrl('media', 'main.css');
 		const codiconsUri = this.extensionResourceUrl('media', 'codicon.css');
+
+		// Ensure URL has a protocol
+		let processedUrl = url;
+		if (processedUrl && !processedUrl.startsWith('http://') && !processedUrl.startsWith('https://')) {
+			processedUrl = 'https://' + processedUrl;
+		}
 
 		return /* html */ `<!DOCTYPE html>
 			<html>
@@ -129,10 +135,11 @@ export class SimpleBrowserView extends Disposable {
 					style-src ${this._webviewPanel.webview.cspSource};
 					script-src 'nonce-${nonce}';
 					frame-src *;
+					connect-src *;
 					">
 
 				<meta id="simple-browser-settings" data-settings="${escapeAttribute(JSON.stringify({
-			url: url,
+			url: processedUrl,
 			focusLockEnabled: configuration.get<boolean>('focusLockIndicator.enabled', true)
 		}))}">
 
@@ -165,7 +172,7 @@ export class SimpleBrowserView extends Disposable {
 				</header>
 				<div class="content">
 					<div class="iframe-focused-alert">${vscode.l10n.t("Focus Lock")}</div>
-					<iframe sandbox="allow-scripts allow-forms allow-same-origin allow-downloads"></iframe>
+					<iframe sandbox="allow-scripts allow-forms allow-same-origin allow-downloads allow-popups allow-modals" allow="fullscreen"></iframe>
 				</div>
 
 				<script src="${mainJs}" nonce="${nonce}"></script>

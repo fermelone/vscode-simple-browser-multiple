@@ -10,7 +10,7 @@ This is a modified version of VS Code's built-in Simple Browser extension that a
 
 ## Usage
 
-Use the command "Simple Browser: Show" to open a new browser window. Each time you run this command, a new browser window will open.
+Use the command "Simple Browser Multi: Show" to open a new browser window. Each time you run this command, a new browser window will open.
 
 ## Differences from the original Simple Browser
 
