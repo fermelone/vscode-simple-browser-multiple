@@ -16,6 +16,23 @@ This is a modified version of VS Code's built-in [Simple Browser extension](http
 
 Use the command "Simple Browser Multi: Show" to open a new browser window. Each time you run this command, a new browser window will open.
 
+## Replacing simple-browser with this extension
+
+The original Simple Browser extension is triggered by the `simpleBrowser.api.open` command — this is the same command that other extensions use to open browser windows inside VS Code. (for example, `gp preview` in Gitpod).
+
+This extension, also listens for the `simpleBrowser.api.open` command. So, to make `gp preview` or other extensions use the Simple Browser Multi extension (this one) instead, you need to disable the built-in Simple Browser extension. You can do this by adding the following vscode setting:
+
+```
+"extensions.disabled": [
+    "vscode.simple-browser"
+]
+```
+
+Add this to your `settings.json` file. You can do this in one of two ways:
+
+* As a local user `settings.json` file, so it applies globally on your machine.
+* As a workspace/project setting, by committing it to `.vscode/settings.json` in your project. This ensures that anyone who opens the project with VS Code inherits this behavior.
+
 ## Differences from the original Simple Browser
 
 The original Simple Browser extension only allows one browser window to be open at a time. If you try to open a new URL, it will reuse the existing window. This modified version creates a new window each time.
