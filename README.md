@@ -1,6 +1,6 @@
 # Simple Browser Multi
 
-This is a modified version of VS Code's built-in Simple Browser extension that allows opening multiple browser instances simultaneously.
+This is a modified version of VS Code's built-in [Simple Browser extension](https://github.com/microsoft/vscode/tree/main/extensions/simple-browser) that allows opening multiple browser instances simultaneously.
 
 <p align="center">
   <img width="800" alt="image" src="https://github.com/user-attachments/assets/61f4b22c-9ab0-49a4-8e3d-406bcc9e4925" />
@@ -22,4 +22,4 @@ The original Simple Browser extension only allows one browser window to be open 
 
 ## License
 
-This extension is licensed under the MIT License, same as the original VS Code repository.
+This extension is licensed under the MIT License, same as the original [VS Code repository](https://github.com/microsoft/vscode/tree/main/extensions/simple-browser).
