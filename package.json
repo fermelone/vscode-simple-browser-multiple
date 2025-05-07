@@ -14,12 +14,14 @@
     "vscode": "^1.80.0"
   },
   "main": "./out/src/extension",
+  "browser": "./out/src/extension.js",
   "categories": [
     "Other"
   ],
   "extensionKind": [
     "ui",
-    "workspace"
+    "workspace",
+    "web"
   ],
   "activationEvents": [
     "onCommand:simpleBrowserMulti.api.open",
@@ -59,7 +61,9 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "build-preview": "node ./esbuild-preview.js",
-    "vscode:prepublish": "npm run compile && npm run build-preview",
+    "webpack": "webpack --mode production",
+    "webpack-dev": "webpack --mode development --watch",
+    "vscode:prepublish": "npm run webpack && npm run build-preview",
     "package": "vsce package",
     "lint": "eslint src --ext ts"
   },
@@ -73,7 +77,10 @@
     "@types/vscode-webview": "^1.57.0",
     "@vscode/codicons": "^0.0.36",
     "typescript": "^5.8.3",
-    "vsce": "^2.15.0"
+    "vsce": "^2.15.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.4.4"
   },
   "repository": {
     "type": "git",

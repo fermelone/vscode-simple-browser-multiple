@@ -7,10 +7,7 @@ import * as vscode from 'vscode';
 import { SimpleBrowserManager } from './simpleBrowserManager';
 import { SimpleBrowserView } from './simpleBrowserView';
 
-declare class URL {
-	constructor(input: string, base?: string | URL);
-	hostname: string;
-}
+// Use the built-in URL API
 
 const openApiCommand = 'simpleBrowserMulti.api.open';
 const showCommand = 'simpleBrowserMulti.show';
