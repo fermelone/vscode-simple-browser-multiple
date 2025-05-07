@@ -58,7 +58,8 @@
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "vscode:prepublish": "npm run compile",
+    "build-preview": "node ./esbuild-preview.js",
+    "vscode:prepublish": "npm run compile && npm run build-preview",
     "package": "vsce package",
     "lint": "eslint src --ext ts"
   },
@@ -76,12 +77,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microsoft/vscode.git"
+    "url": "git+https://github.com/fermelone/vscode-simple-browser-multiple.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["browser", "preview", "web"],
+  "author": "fermelone",
   "bugs": {
-    "url": "https://github.com/microsoft/vscode/issues"
+    "url": "https://github.com/fermelone/vscode-simple-browser-multiple/issues"
   },
-  "homepage": "https://github.com/microsoft/vscode#readme"
+  "homepage": "https://github.com/fermelone/vscode-simple-browser-multiple#readme"
 }
